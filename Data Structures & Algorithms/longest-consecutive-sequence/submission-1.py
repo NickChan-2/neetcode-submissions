@@ -1,0 +1,23 @@
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        
+        # watch if the number is the first in the set if not skip else count for each in sequence
+
+        nums = set(nums)
+        longest = 0
+
+        for n in nums:
+
+            if n - 1 in nums:
+                continue
+            else:
+                length = 1
+                n += 1
+
+                while n in nums:
+                    length += 1
+                    n += 1
+                
+                longest = max(longest, length)
+        
+        return longest
